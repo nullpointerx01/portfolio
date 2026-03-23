@@ -60,12 +60,12 @@ const SocialIcons = () => {
     <div className="icons-section">
       <div className="social-icons" data-cursor="icons" id="social">
         <span>
-          <a href="https://github.com/alokdwivedi" target="_blank">
+          <a href="https://github.com/nullpointerx01" target="_blank">
             <FaGithub />
           </a>
         </span>
         <span>
-          <a href="https://www.linkedin.com/in/alokdwivedi" target="_blank">
+          <a href="https://in.linkedin.com/in/alok-dwivedi-b387b1326" target="_blank">
             <FaLinkedinIn />
           </a>
         </span>
