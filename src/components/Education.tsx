@@ -69,8 +69,8 @@ const Education = () => {
             <h5>SRM-IST, Delhi-NCR</h5>
             
             <div className="education-gpa">
-              <span>Current GPA</span>
-              <span>8.90</span>
+              <span>CGPA</span>
+              <span>8.0</span>
             </div>
 
             <div className="education-courses">

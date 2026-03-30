@@ -15,7 +15,7 @@ const Contact = () => {
               </a>
             </p>
             <h4>Education</h4>
-            <p>B.Tech in CSE — SRM-IST (GPA: 8.90)</p>
+            <p>B.Tech in CSE — SRM-IST (CGPA: 8.0)</p>
           </div>
           <div className="contact-box">
             <h4>Social</h4>
@@ -34,22 +34,6 @@ const Contact = () => {
               className="contact-social"
             >
               Linkedin <MdArrowOutward />
-            </a>
-            <a
-              href="https://x.com/raxx21_official"
-              target="_blank"
-              data-cursor="disable"
-              className="contact-social"
-            >
-              Twitter <MdArrowOutward />
-            </a>
-            <a
-              href="https://www.instagram.com/alokdwivedi"
-              target="_blank"
-              data-cursor="disable"
-              className="contact-social"
-            >
-              Instagram <MdArrowOutward />
             </a>
           </div>
           <div className="contact-box">
