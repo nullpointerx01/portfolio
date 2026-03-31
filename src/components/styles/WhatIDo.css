@@ -34,7 +34,7 @@
 }
 .what-box-in {
   flex-direction: column;
-  height: 500px;
+  height: 550px;
   margin-left: 200px;
   position: relative;
   display: none;
@@ -44,22 +44,21 @@
   height: 33%;
   min-height: 50%;
   transition: 0.5s;
-  /* border: 0.5px dashed rgba(255, 255, 255, 0.3); */
   position: relative;
-  padding: 50px;
+  padding: 35px 50px;
   box-sizing: border-box;
 }
 
 .what-noTouch:hover,
 .what-content-active {
-  min-height: 67%;
-  padding: 40px 50px;
+  min-height: 70%;
+  padding: 35px 50px;
 }
 
 .what-noTouch:hover ~ .what-content,
 .what-box-in:hover .what-noTouch:not(:hover),
 .what-content.what-sibling {
-  min-height: 33%;
+  min-height: 30%;
   padding: 10px 50px;
 }
 .what-content h3 {
@@ -72,6 +71,7 @@
   line-height: 18px;
   font-weight: 200;
   letter-spacing: 0.7px;
+  margin: 12px 0;
 }
 .what-content h4 {
   font-weight: 300;
@@ -199,7 +199,7 @@
   animation: whatBorders 1.2s 1 forwards;
 }
 .what-border2 svg {
-  height: 500px;
+  height: 550px;
   top: 50%;
   transform: translateY(-50%);
   position: absolute;
@@ -210,11 +210,12 @@
 }
 .what-content-in h5 {
   font-weight: 300;
-  opacity: 0.5;
+  opacity: 0;
   font-size: 12px;
   letter-spacing: 1px;
   font-family: "Geist", sans-serif;
   margin-bottom: 5px;
+  transition: 0.3s;
 }
 @keyframes whatBorders {
   80% {
@@ -230,6 +231,14 @@
   display: flex;
   gap: 5px;
   flex-wrap: wrap;
+  opacity: 0;
+  transition: 0.3s;
+}
+.what-noTouch:hover h5,
+.what-content-active h5,
+.what-noTouch:hover .what-content-flex,
+.what-content-active .what-content-flex {
+  opacity: 1;
 }
 .what-tags {
   font-size: 13px;
@@ -290,7 +299,7 @@
     padding-bottom: 50px;
   }
   .what-box-in {
-    height: 500px;
+    height: 550px;
     margin-left: -50px;
   }
   .what-content {
@@ -326,7 +335,7 @@
     justify-content: left;
   }
   .what-box:last-child {
-    height: 500px;
+    height: 550px;
   }
   .what-box {
     width: 500px;
@@ -339,17 +348,6 @@
   .what-box-in {
     margin-left: 0px;
     height: 450px;
-  }
-  .what-content h5,
-  .what-content-flex {
-    opacity: 0;
-    transition: 0.3s;
-  }
-  .what-noTouch:hover h5,
-  .what-content-active h5,
-  .what-noTouch:hover .what-content-flex,
-  .what-content-active .what-content-flex {
-    opacity: 1;
   }
   .what-content {
     padding: 30px;
