@@ -43,15 +43,14 @@ const SocialIcons = () => {
           </span>
         </Magnetic>
       </div>
-      
+
       <Magnetic>
-        <a 
-          className="resume-button" 
-          href="https://drive.google.com/file/d/1qrHGe6Xc1fwrFSMIJAzgvYOqDRw-uIb8/view?usp=sharing"
-          target="_blank"
+        <a
+          className="resume-button"
+          href="#"
           onClick={(e) => {
             e.preventDefault();
-            transitionTo("https://drive.google.com/file/d/1qrHGe6Xc1fwrFSMIJAzgvYOqDRw-uIb8/view?usp=sharing", true);
+            transitionTo("#", false); // Add actual PDF link here
           }}
         >
           <HoverLinks text="RESUME" />
