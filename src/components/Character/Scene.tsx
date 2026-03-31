@@ -17,7 +17,12 @@ const Scene = () => {
   const canvasDiv = useRef<HTMLDivElement | null>(null);
   const hoverDivRef = useRef<HTMLDivElement>(null);
   const sceneRef = useRef(new THREE.Scene());
-  const { setLoading } = useLoading();
+  const { setLoading, isLoading } = useLoading();
+  const isLoadingRef = useRef(isLoading);
+
+  useEffect(() => {
+    isLoadingRef.current = isLoading;
+  }, [isLoading]);
 
   const [character, setChar] = useState<THREE.Object3D | null>(null);
   useEffect(() => {
@@ -108,6 +113,7 @@ const Scene = () => {
       }
       const animate = () => {
         requestAnimationFrame(animate);
+        if (isLoadingRef.current) return;
         if (headBone) {
           handleHeadRotation(
             headBone,

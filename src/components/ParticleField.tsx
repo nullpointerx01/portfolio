@@ -1,7 +1,9 @@
-import { useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 import "./styles/ParticleField.css";
+
+import { useLoading } from "../context/LoadingProvider";
 
 const PARTICLE_COUNT = 2500;
 const RADIUS = 10;
@@ -9,6 +11,13 @@ const REPULSION_RADIUS = 2.5;
 const REPULSION_FORCE = 0.5;
 
 function Particles() {
+  const { isLoading } = useLoading();
+  const isLoadingRef = useRef(isLoading);
+
+  useEffect(() => {
+    isLoadingRef.current = isLoading;
+  }, [isLoading]);
+
   const pointsRef = useRef<THREE.Points>(null);
   const { viewport, mouse } = useThree();
 
@@ -36,7 +45,7 @@ function Particles() {
   }, []);
 
   useFrame((state) => {
-    if (!pointsRef.current) return;
+    if (!pointsRef.current || isLoadingRef.current) return;
 
     const positionsArray = pointsRef.current.geometry.attributes.position.array as Float32Array;
 
