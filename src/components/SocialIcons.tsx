@@ -47,10 +47,11 @@ const SocialIcons = () => {
       <Magnetic>
         <a 
           className="resume-button" 
-          href="#"
+          href="https://drive.google.com/file/d/1qrHGe6Xc1fwrFSMIJAzgvYOqDRw-uIb8/view?usp=sharing"
+          target="_blank"
           onClick={(e) => {
             e.preventDefault();
-            transitionTo("#", false); // Add actual PDF link here
+            transitionTo("https://drive.google.com/file/d/1qrHGe6Xc1fwrFSMIJAzgvYOqDRw-uIb8/view?usp=sharing", true);
           }}
         >
           <HoverLinks text="RESUME" />
