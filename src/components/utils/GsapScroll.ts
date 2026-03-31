@@ -191,27 +191,5 @@ export function setAllTimeline() {
     );
   }
 
-  // Feature 2: Scroll Velocity Skew
-  // Applies a subtle stretch/tilt on scroll based on velocity
-  const skewSetter = gsap.quickSetter("#smooth-content", "skewY", "deg");
-  const clamp = gsap.utils.clamp(-3, 3); // don't make it nauseating
-  let proxy = { skew: 0 };
-
-  ScrollTrigger.create({
-    onUpdate: (self) => {
-      // Calculate skew from velocity
-      const skew = clamp(self.getVelocity() / -400); 
-      // Only animate if the difference is noticeable to save performance
-      if (Math.abs(skew) > Math.abs(proxy.skew)) {
-        proxy.skew = skew;
-        gsap.to(proxy, {
-          skew: 0,
-          duration: 0.8,
-          ease: "power3",
-          overwrite: true,
-          onUpdate: () => skewSetter(proxy.skew),
-        });
-      }
-    },
-  });
+  // Feature 2: Scroll Velocity Skew removed due to massive performance hit on 3D canvas
 }
