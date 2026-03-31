@@ -3,6 +3,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HoverLinks from "./HoverLinks";
 import { gsap } from "gsap";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
+import Magnetic from "./Magnetic";
 import "./styles/Navbar.css";
 
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
@@ -43,9 +44,11 @@ const Navbar = () => {
   return (
     <>
       <div className="header">
-        <a href="/#" className="navbar-title" data-cursor="disable">
-          AD
-        </a>
+        <Magnetic>
+          <a href="/#" className="navbar-title" data-cursor="disable">
+            AD
+          </a>
+        </Magnetic>
         <a
           href="mailto:a.dwivedi6303@gmail.com"
           className="navbar-connect"
@@ -54,26 +57,34 @@ const Navbar = () => {
           a.dwivedi6303@gmail.com
         </a>
         <ul>
-          <li>
-            <a data-href="#about" href="#about">
-              <HoverLinks text="ABOUT" />
-            </a>
-          </li>
-          <li>
-            <a data-href="#education" href="#education">
-              <HoverLinks text="EDUCATION" />
-            </a>
-          </li>
-          <li>
-            <a data-href="#work" href="#work">
-              <HoverLinks text="WORK" />
-            </a>
-          </li>
-          <li>
-            <a data-href="#contact" href="#contact">
-              <HoverLinks text="CONTACT" />
-            </a>
-          </li>
+          <Magnetic>
+            <li>
+              <a data-href="#about" href="#about">
+                <HoverLinks text="ABOUT" />
+              </a>
+            </li>
+          </Magnetic>
+          <Magnetic>
+            <li>
+              <a data-href="#education" href="#education">
+                <HoverLinks text="EDUCATION" />
+              </a>
+            </li>
+          </Magnetic>
+          <Magnetic>
+            <li>
+              <a data-href="#work" href="#work">
+                <HoverLinks text="WORK" />
+              </a>
+            </li>
+          </Magnetic>
+          <Magnetic>
+            <li>
+              <a data-href="#contact" href="#contact">
+                <HoverLinks text="CONTACT" />
+              </a>
+            </li>
+          </Magnetic>
         </ul>
       </div>
 

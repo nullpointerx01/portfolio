@@ -1,0 +1,33 @@
+.page-transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99999;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.transition-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #070707; /* Matches the dark theme */
+  transform: translateY(100%); /* Starts off-screen */
+}
+
+.transition-text {
+  font-family: "BasementGrotesque-Black", sans-serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: #22d3ee;
+  letter-spacing: 0.1em;
+  opacity: 0;
+  z-index: 2;
+  text-transform: uppercase;
+}

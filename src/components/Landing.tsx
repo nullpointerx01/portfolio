@@ -1,17 +1,35 @@
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, useEffect } from "react";
+import { useTextScramble } from "./utils/useTextScramble";
 import "./styles/Landing.css";
 
 const Landing = ({ children }: PropsWithChildren) => {
+  const { displayText: firstName, scramble: scrambleFirst } = useTextScramble("ALOK");
+  const { displayText: lastName, scramble: scrambleLast } = useTextScramble("DWIVEDI");
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      scrambleFirst();
+      scrambleLast();
+    }, 500);
+
+    return () => clearTimeout(timeoutId);
+  }, [scrambleFirst, scrambleLast]);
+
   return (
     <>
       <div className="landing-section" id="landingDiv">
         <div className="landing-container">
           <div className="landing-intro">
             <h2>Hello! I'm</h2>
-            <h1>
-              ALOK
+            <h1 
+              onMouseEnter={() => {
+                scrambleFirst();
+                scrambleLast();
+              }}
+              style={{ cursor: "crosshair" }}
+            >
+              {firstName}
               <br />
-              <span>DWIVEDI</span>
+              <span>{lastName}</span>
             </h1>
           </div>
           <div className="landing-info">

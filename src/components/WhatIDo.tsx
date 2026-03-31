@@ -1,13 +1,35 @@
 import { useEffect, useRef } from "react";
 import "./styles/WhatIDo.css";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTextScramble } from "./utils/useTextScramble";
 
 const WhatIDo = () => {
   const containerRef = useRef<(HTMLDivElement | null)[]>([]);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  
+  const { displayText: whatText, scramble: scrambleWhat } = useTextScramble("WHAT");
+  const { displayText: doText, scramble: scrambleDo } = useTextScramble("I DO");
+  const hasTriggered = useRef(false);
+
   const setRef = (el: HTMLDivElement | null, index: number) => {
     containerRef.current[index] = el;
   };
+
   useEffect(() => {
+    if (sectionRef.current && !hasTriggered.current) {
+      ScrollTrigger.create({
+        trigger: sectionRef.current,
+        start: "top 70%",
+        onEnter: () => {
+          if (!hasTriggered.current) {
+            scrambleWhat();
+            scrambleDo();
+            hasTriggered.current = true;
+          }
+        }
+      });
+    }
+
     if (ScrollTrigger.isTouch) {
       containerRef.current.forEach((container) => {
         if (container) {
@@ -23,14 +45,22 @@ const WhatIDo = () => {
         }
       });
     };
-  }, []);
+  }, [scrambleWhat, scrambleDo]);
+
   return (
-    <div className="whatIDO">
+    <div className="whatIDO" ref={sectionRef}>
       <div className="what-box">
-        <h2 className="title">
-          W<span className="hat-h2">HAT</span>
+        <h2 
+          className="title" 
+          onMouseEnter={() => {
+            scrambleWhat();
+            scrambleDo();
+          }}
+          style={{ cursor: "crosshair" }}
+        >
+          <span className="hat-h2">{whatText}</span>
           <div>
-            I<span className="do-h2"> DO</span>
+            <span className="do-h2">{doText}</span>
           </div>
         </h2>
       </div>

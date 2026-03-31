@@ -9,7 +9,7 @@ export function initialFX() {
   gsap.to("body", {
     backgroundColor: "#0a0e17",
     duration: 0.5,
-    delay: 1,
+    delay: 0.2,
   });
 
   var landingText = new SplitText(
@@ -24,12 +24,12 @@ export function initialFX() {
     { opacity: 0, y: 80, filter: "blur(5px)" },
     {
       opacity: 1,
-      duration: 1.2,
+      duration: 1.0,
       filter: "blur(0px)",
       ease: "power3.inOut",
       y: 0,
       stagger: 0.025,
-      delay: 0.3,
+      delay: 0.1,
     }
   );
 
@@ -41,12 +41,12 @@ export function initialFX() {
     { opacity: 0, y: 80, filter: "blur(5px)" },
     {
       opacity: 1,
-      duration: 1.2,
+      duration: 1.0,
       filter: "blur(0px)",
       ease: "power3.inOut",
       y: 0,
       stagger: 0.025,
-      delay: 0.3,
+      delay: 0.1,
     }
   );
 
@@ -55,10 +55,10 @@ export function initialFX() {
     { opacity: 0, y: 30 },
     {
       opacity: 1,
-      duration: 1.2,
+      duration: 1.0,
       ease: "power1.inOut",
       y: 0,
-      delay: 0.8,
+      delay: 0.4,
     }
   );
   gsap.fromTo(

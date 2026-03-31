@@ -10,8 +10,11 @@ import WhatIDo from "./WhatIDo";
 import Education from "./Education";
 import Work from "./Work";
 import setSplitText from "./utils/splitText";
+import PageTransition from "./PageTransition";
+import ScrollProgress from "./ScrollProgress";
 
 const TechStack = lazy(() => import("./TechStack"));
+const ParticleField = lazy(() => import("./ParticleField"));
 
 const MainContainer = ({ children }: PropsWithChildren) => {
   const [isDesktopView, setIsDesktopView] = useState<boolean>(
@@ -35,7 +38,13 @@ const MainContainer = ({ children }: PropsWithChildren) => {
       <Cursor />
       <Navbar />
       <SocialIcons />
+      <PageTransition />
       {isDesktopView && children}
+      {isDesktopView && (
+        <Suspense fallback={null}>
+          <ParticleField />
+        </Suspense>
+      )}
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <div className="container-main">
@@ -54,6 +63,7 @@ const MainContainer = ({ children }: PropsWithChildren) => {
           </div>
         </div>
       </div>
+      <ScrollProgress />
     </div>
   );
 };

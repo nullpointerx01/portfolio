@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { MdArrowOutward } from "react-icons/md";
+import TiltCard from "./TiltCard";
 
 interface Props {
   image: string;
@@ -36,8 +37,10 @@ const WorkImage = (props: Props) => {
             <MdArrowOutward />
           </div>
         )}
-        <img src={props.image} alt={props.alt} />
-        {isVideo && <video src={video} autoPlay muted playsInline loop></video>}
+        <TiltCard maxTilt={10}>
+          <img src={props.image} alt={props.alt} />
+          {isVideo && <video src={video} autoPlay muted playsInline loop></video>}
+        </TiltCard>
       </a>
     </div>
   );
