@@ -17,7 +17,7 @@ export function setCharTimeline(
       trigger: ".landing-section",
       start: "top top",
       end: "bottom top",
-      scrub: 4,
+      scrub: 1,
       invalidateOnRefresh: true,
     },
   });
@@ -26,7 +26,7 @@ export function setCharTimeline(
       trigger: ".about-section",
       start: "center 55%",
       end: "bottom top",
-      scrub: 4,
+      scrub: 1,
       invalidateOnRefresh: true,
     },
   });
@@ -35,7 +35,7 @@ export function setCharTimeline(
       trigger: ".whatIDO",
       start: "top top",
       end: "bottom top",
-      scrub: 4,
+      scrub: 1,
       invalidateOnRefresh: true,
     },
   });
@@ -119,7 +119,7 @@ export function setCharTimeline(
           0
         )
         .fromTo(".whatIDO", { y: 0 }, { y: "15%", duration: 2 }, 0)
-        .to(character.rotation, { x: -0.04, duration: 2, delay: 1 }, 0);
+        .fromTo(character.rotation, { x: 0.12 }, { x: -0.04, duration: 2, delay: 1 }, 0);
     }
   } else {
     if (character) {
@@ -141,7 +141,7 @@ export function setAllTimeline() {
       trigger: ".career-section",
       start: "top 30%",
       end: "100% center",
-      scrub: 4,
+      scrub: 1,
       invalidateOnRefresh: true,
     },
   });
